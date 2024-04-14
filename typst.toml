@@ -1,0 +1,16 @@
+[package]
+name = "minerva-report"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["David Ibáñez <@Dav1com>"]
+license = "MIT-0"
+description = "Template para crear artículos, informes y tareas para la Facultad de Ciencias Físicas y Matemáticas (FCFM), pero puede ser personalizado para cualquier universidad."
+keywords = ["fcfm", "informe", "tarea", "informe", "uchile", "español", "es", "spanish"]
+categories = ["report"]
+compiler = "0.11.0"
+exclude = ["example.typ", "example.pdf", "docs.typ", "docs.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
