@@ -36,11 +36,12 @@
   })
 }
 
-/** Localización
+/******************************************************************************
+ *           Localización
  *
  * Las siguientes son funciones de utilidad general para mejor
  * soporte del español.
- **/
+ ******************************************************************************/
 /// Arreglo con los nombres de meses en español.
 #let meses = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
               "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
@@ -53,7 +54,7 @@
   return str(fecha.day()) + " de " + meses.at(fecha.month()) + " de " + str(fecha.year())
 }
 
-/// Show rule que cambia el formato de los número para usar coma decimal.
+/// Show rule que cambia el formato de los números para usar coma decimal.
 ///
 /// doc (content): documento a aplicar reglas
 /// -> content
@@ -77,10 +78,11 @@
   doc
 }
 
-/** Elements
+/******************************************************************************
+ *           Componentes
  *
- * Estas funciones generan elementos para usarse como parte del documento.
- */
+ * Estas funciones generan componentes para usarse como parte del documento.
+ ******************************************************************************/
 /// Repite un contenido `count` veces con `padding` entre ellos.
 /// Si `count` es `auto`, se utiliza tanto espacio como haya disponible.
 /// - body    (content, str, int): Contenido a repetir.
@@ -111,10 +113,10 @@
 
 #let abstract = resumen
 
-/********************************
- *  Portadas
+/******************************************************************************
+ *           Portadas
  * 
- *******************************/ 
+ ******************************************************************************/ 
 
 /// Diseño de portada básico, perfecto para informes y tareas.
 /// 
@@ -207,9 +209,10 @@
   ]
 }
 
-/** Headers
+/******************************************************************************
+ *           Headers
  *
- */
+ ******************************************************************************/
 
 /// El header por defecto.
 /// - meta (dictionary): Contenidos del archivo **meta.typ**
@@ -269,9 +272,10 @@
   #line(length: 100%, stroke: 0.4pt)
 ]
 
-/** Footers
+/******************************************************************************
+ *           Footers
  *
- */
+ ******************************************************************************/
 
 /// El footer por defecto.
 /// - meta (dictionary): Contenido del archivo **meta.typ**'
@@ -291,10 +295,10 @@
 ]
 
 /******************************************************************************
- *     Show rules
+ *           Show rules
  * 
  * Las siguientes funciones están pensadas para utilizarse como show rules de
- * la forma:
+ * la forma `show: funcion`
  * 
  *****************************************************************************/
 
@@ -320,21 +324,24 @@
   doc
 }
 
-/**
- *
- */
+/******************************************************************************
+ *           Departamentos
+ * 
+ * Se define en otro archivo por limpieza, y se importa como `module` para
+ * tener autocompletado.
+ ******************************************************************************/
 #import "departamentos.typ" as departamentos
 #let departamentos = departamentos
 
 
 /******************************************************************************
- *      Template
+ *           Template
+ *
  *****************************************************************************/
 
 /// Función que aplica los estilos del template para infromes.
 /// 
-/// - meta (dictionary, module): Archivo `meta.typ`
-/// - fuente (str): Fuente a usar en el texto.
+/// - meta (dictionary, module): Archivo `meta.typ`.
 /// - portada (function): Portada a usar.
 /// - header (function): Header a usar.
 /// - footer (function): Footer a usar.
@@ -346,7 +353,6 @@
 /// -> content
 #let report(
   meta,
-  fuente: "",
   portada: portada1,
   header: header1,
   footer: footer1,

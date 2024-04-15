@@ -37,9 +37,5 @@ Algunos aspectos más avanzados pueden ser configurados a través de la show rul
 |-----------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | portada   | (meta) => content | Una función que recibe el diccionario `meta.typ` y retorna una página.                                                                                                                    |
 | header    | (meta) => content | Header a aplicarse a cada página.                                                                                                                                                         |
-| footer    | (meta) => content | Footer a aplciarse a cada página.                                                                                                                                                         |
+| footer    | (meta) => content | Footer a aplicarse a cada página.                                                                                                                                                         |
 | showrules | bool              | El template aplica ciertas show-rules para que sea más fácil de utilizar. Si quires más personalización, es probable que necesites desactivarlas y luego solo utilizar las que necesites. |
-
-# Changelog
-# v0.1.0
-- Primera versión
