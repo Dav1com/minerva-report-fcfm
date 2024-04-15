@@ -51,7 +51,7 @@
 /// fecha (datetime): fecha a dar formato.
 /// -> str
 #let formato-fecha(fecha) = {
-  return str(fecha.day()) + " de " + meses.at(fecha.month()) + " de " + str(fecha.year())
+  return str(fecha.day()) + " de " + meses.at(fecha.month()-1) + " de " + str(fecha.year())
 }
 
 /// Show rule que cambia el formato de los números para usar coma decimal.

@@ -8,7 +8,7 @@
 #let curso = "CC4034 - Composición de Documentos"
 
 #let fechas = ( // diccionario de fechas, si la portada no soporta
-  realización: "14 de Mayo de 2024",
+  realización: "14 de Abril de 2024",
   entrega: minerva.formato-fecha(datetime.today())
 )
 #let lugar = "Santiago, Chile"
