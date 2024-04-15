@@ -228,14 +228,17 @@
   #grid(columns: (auto, 1fr), rows: auto)[
     #set align(left + bottom)
     #context {
-      let here = here()
-      let prev-headings = query(selector(heading.where(level: 1)).before(here), here)
-      let post-headings = query(selector(heading.where(level: 1)).after(here), here)
+      let loc = here()
+      let post-headings = query(selector(heading.where(level: 1, outlined: true)).after(loc), loc)
       let heading-found = none
-      if post-headings != () and post-headings.first().location().page() == here.page() {
+      if post-headings != () and post-headings.first().location().page() == loc.page() {
         heading-found = post-headings.first()
-      } else if prev-headings != () {
-        heading-found = prev-headings.last()
+      } else {
+        let prev-headings = query(selector(heading.where(level: 1, outlined: true)).before(loc), loc)
+
+        if prev-headings != () {
+          heading-found = prev-headings.last()  
+        }
       }
 
       if heading-found != none and heading-found.numbering != none {
@@ -245,13 +248,8 @@
   ][
     #set align(right + bottom)
     #context {
-      let headings = query(heading)
-      let first-numbered-heading = none
-      for heading in headings {
-        if heading.numbering != none {
-          first-numbered-heading = heading
-        }
-      }
+      let headings = query(heading.where(outlined: true))
+      let first-numbered-heading = headings.at(0, default: none)
 
       let numbering = "i"
       if first-numbered-heading != none {
