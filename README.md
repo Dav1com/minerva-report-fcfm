@@ -4,7 +4,7 @@ Template para hacer tareas, informes y trabajos. Pensado para ser familiar para 
 
 ## Guía Rápida
 
-### (Webapp)[https://typst.app]
+### [Webapp](https://typst.app)
 Si utilizas la webapp de Typst puedes presionar "Start from template" y buscar "minerva-report-fcfm" para crear un nuevo proyecto con este template.
 
 ### Typst CLI
