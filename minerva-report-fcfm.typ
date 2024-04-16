@@ -6,6 +6,14 @@
  **/
 
 /******************************************************************************
+ *           Estado
+ *
+ * Variables de estado utilizadas por el template.
+ *****************************************************************************/
+#import "state.typ" as state
+#let state = state
+
+/******************************************************************************
  *           Funciones base
  *
  * La idea es que si necesitas extender personalizar el template,
@@ -31,6 +39,7 @@
 
 #let base-front-page(it, ..args) = {
   return page(..args, {
+    state.is-main.update(true)
     it
     counter(page).update(0)
   })
@@ -356,6 +365,40 @@
   doc
 }
 
+/// Permite que el documento compile aún si hay referencias rotas,
+/// mostrando un mensaje en lugar de la referencia.
+///
+/// - mensaje (content): Mensaje a mostrar.
+/// - doc (content): Documento a aplicar la regla.
+/// -> content
+#let permite-ref-rotas(mensaje: text(fill: red, "<ref>"), doc) = {
+  show ref: it => {
+    if it.element == none {
+      mensaje
+    }
+  }
+  doc
+}
+
+/// Permite que el documento compile aún si hay referencias rotas,
+/// pero solo si el archivo que se está compilando no es el `main.typ`.
+/// Esto es validado utilizando el estado `state("minerva.is-main")`.
+/// 
+/// - mensaje (content): Mensaje a mostrar.
+/// - doc (content): Documento a aplicar la regla.
+/// -> content
+#let permite-ref-rotas-fuera-de-main(mensaje: text(fill: red, "<ref>"), doc) = {
+  show ref: it => context {
+    if state.is-main.get() {
+      return it
+    }
+    if it.element == none {
+      mensaje
+    }
+  }
+  doc
+}
+
 /******************************************************************************
  *           Departamentos
  * 
@@ -419,4 +462,18 @@
     
     doc
   }
+}
+
+/// Esta show rule es para utiliza en archivos que no sean `main.typ`,
+/// con la idea es permitir que estos archivos sean compilables por separado.
+/// Esto es útil para mantener el proyecto ordenado, como también si el documento
+/// es demasiado grande como para que la webapp compile en tiempo real.
+/// Esta show rules no tienen ningún efecto si el archivo a compilar es `main.typ`.
+///
+/// - doc (content): Documento a aplicar la regla.
+/// -> content
+#let subfile(doc) = {
+  show: permite-ref-rotas-fuera-de-main
+  
+  doc
 }
