@@ -398,15 +398,10 @@
     portada-set-extra.insert("margin", margenes-portada)
   }
 
-  let author = meta.autores
-  if type(meta.autores) == array {
-    author = meta.autores.at(0)
-  }
-
   set text(lang: "es", region: "cl", hyphenate: true)
   set heading(numbering: "1.")
   set par(leading: 0.5em, justify: true, linebreaks: "optimized")
-  set document(author: author, date: datetime.today())
+  set document(title: meta.titulo, author: meta.autores, date: datetime.today())
   set math.equation(numbering: "(1)")
   
   set page(header: header(meta), footer: footer(meta), margin: margenes)
