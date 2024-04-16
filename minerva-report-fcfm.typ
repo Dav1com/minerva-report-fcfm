@@ -78,6 +78,40 @@
   doc
 }
 
+/// Esta show rule cambia los operadores definidos por Typst para
+/// que estén en español.
+///
+/// - doc (content): Contenido a aplicar las reglas.
+/// -> content
+#let operadores-es(doc) = {
+  show math.op.where(text: [#"inf"]): it => {
+    show "inf": "ínf"
+    it
+  }
+  show math.op.where(text: [#"lim"]): it => {
+    show "lim": "lím"
+    it
+  }
+  show math.op.where(text: [#"lim\u{2009}inf"]): it => {
+    show "lim\u{2009}inf": "lím\u{2009}ínf"
+    it
+  }
+  show math.op.where(text: [#"lim\u{2009}sup"]): it => {
+    show "lim\u{2009}sup": "lím\u{2009}sup"
+    it
+  }
+  show math.op.where(text: [#"max"]): it => {
+    show "max": "máx"
+    it
+  }
+  show math.op.where(text: [#"min"]): it => {
+    show "min": "mín"
+    it
+  }
+
+  doc
+}
+
 /******************************************************************************
  *           Componentes
  *
@@ -386,6 +420,7 @@
 
   if showrules {
     show: primer-heading-en-nueva-pag
+    show: operadores-es
     
     doc
   }
