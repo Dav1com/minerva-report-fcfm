@@ -44,3 +44,14 @@ La documentación de typst es muy buena explicando los conceptos claves para usa
 - Puedes partir leyendo el tutorial: https://typst.app/docs/tutorial/
 - Si tienes expericiencia en LaTeX, entonces la guía para usuarios de LaTeX es un buen punto de partida: https://typst.app/docs/guides/guide-for-latex-users/
 - Para consultas específicas, está el servidor de Discord de Typst: https://discord.gg/2uDybryKPe
+
+= Show rule
+El template incluye algunas show rules opcionales, más documentación en el #link("https://github.com/Dav1com/minerva-report-fcfm/blob/v0.1.0/README.md")[README.md] o en #link("https://typst.app/universe/package/minerva-report-fcfm/0.1.0")[Typst Universe].
+
+== Números con coma decimal
+#[
+  #show: minerva.formato-numeros-es
+
+  Aquí una ecuación con decimales:
+  $ pi = 3.14 $
+]
