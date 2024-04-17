@@ -399,6 +399,23 @@
   doc
 }
 
+/// Aplica los estilos por defecto a las figuras con alguno de los `kind`
+/// especificados.
+///
+/// kind-target (array): Lista de strings con los kind a afectar.
+/// doc (content): Documento a aplicar las reglas.
+/// -> content
+#let estilos-figure(kind-target: ("image", "table"), doc) = {
+  let style-acc = (it) => it
+  for kind in kind-target {
+    style-acc = (it) => {
+      show figure.where(kind: kind): set block(width: 80%)
+      it
+    }
+  }
+  style-acc(doc)
+}
+
 /******************************************************************************
  *           Departamentos
  * 
@@ -441,13 +458,17 @@
     portada-set-extra.insert("margin", margenes-portada)
   }
 
+  set document(title: meta.titulo, author: meta.autores, date: datetime.today())
+  set page(header: header(meta), footer: footer(meta), margin: margenes)
   set text(lang: "es", region: "cl", hyphenate: true)
+
   set heading(numbering: "1.")
   set par(leading: 0.5em, justify: true, linebreaks: "optimized")
-  set document(title: meta.titulo, author: meta.autores, date: datetime.today())
-  set math.equation(numbering: "(1)")
   
-  set page(header: header(meta), footer: footer(meta), margin: margenes)
+  set math.equation(numbering: "(1)")
+
+  show figure.where(kind: table): set block(width: 80%)
+  show figure.where(kind: image): set block(width: 80%)
   
   if portada != none {
     set page(header: [], footer: [], ..portada-set-extra)
