@@ -67,15 +67,8 @@
 ///
 /// doc (content): documento a aplicar reglas
 /// -> content
-#let formato-numeros(doc) = {
+#let formato-numeros-es(doc) = {
   // https://github.com/typst/typst/issues/1093#issuecomment-1536620129
-  show regex("\d+.\d+"): it => {
-    if it.func() == heading {
-      show ".": ","
-    }
-    it
-  }
-  
   show math.equation: it => {
     show regex("\d+.\d+"): it => {
       show ".": {","+h(0pt)}
