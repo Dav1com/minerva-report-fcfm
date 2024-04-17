@@ -1,4 +1,4 @@
-#import "@preview/minerva-report-fcfm:0.1.0" as minerva
+#import "@preview/minerva-report-fcfm:0.2.0" as minerva
 #import "meta.typ" as meta
 
 #show: minerva.report.with(
@@ -46,7 +46,7 @@ La documentación de typst es muy buena explicando los conceptos claves para usa
 - Para consultas específicas, está el servidor de Discord de Typst: https://discord.gg/2uDybryKPe
 
 = Show rule
-El template incluye algunas show rules opcionales, más documentación en el #link("https://github.com/Dav1com/minerva-report-fcfm/blob/v0.1.0/README.md")[README.md] o en #link("https://typst.app/universe/package/minerva-report-fcfm/0.1.0")[Typst Universe].
+El template incluye algunas show rules opcionales, más documentación en el #link("https://github.com/Dav1com/minerva-report-fcfm/blob/v0.2.0/README.md")[README.md] o en #link("https://typst.app/universe/package/minerva-report-fcfm/0.2.0")[Typst Universe].
 
 == Números con coma decimal
 #[
