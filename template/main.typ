@@ -1,4 +1,4 @@
-#import "@preview/minerva-report-fcfm:0.2.0" as minerva
+#import "@preview/minerva-report-fcfm:0.2.1" as minerva
 #import "meta.typ" as meta
 
 #show: minerva.report.with(

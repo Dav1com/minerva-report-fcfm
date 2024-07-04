@@ -475,6 +475,8 @@
     show: operadores-es
     
     doc
+  } else {
+    doc
   }
 }
 

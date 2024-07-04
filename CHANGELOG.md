@@ -1,3 +1,7 @@
+# v0.2.1
+- Arreglado el número de versión de `meta.typ`
+- Arreglado el parámetro `showrules` del template no mostraba el documento cuando se configuraba como `false`
+
 # v0.2.0
 - Agregada metadata al PDF exportado.
 - Agregada show rule y estado para mejorar el soporte para compilar.
