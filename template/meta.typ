@@ -1,4 +1,4 @@
-#import "@preview/minerva-report-fcfm:0.2.1" as minerva
+#import "@preview/minerva-report-fcfm:0.2.2" as minerva
 
 #let titulo = "Informe Minerva"
 #let subtitulo = "Typst"
