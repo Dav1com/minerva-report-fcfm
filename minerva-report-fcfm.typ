@@ -165,7 +165,7 @@
   titulo-centrado: false,
 ) = {
   let miembros = (:)
-  if type(meta.autores) == "string" {
+  if type(meta.autores) == str {
     miembros.insert("Integrante", meta.autores)
   } else if meta.autores.len() > 0 {
     miembros.insert(
@@ -186,7 +186,7 @@
     ][
       #set align(right + bottom)
       #if meta.departamento.logo != none {
-        image.decode(meta.departamento.logo, height: 50pt)
+        image(bytes(meta.departamento.logo), height: 50pt)
       }
     ]
     #v(8pt)
@@ -265,12 +265,12 @@
     #set align(left + bottom)
     #context {
       let loc = here()
-      let post-headings = query(selector(heading.where(level: 1, outlined: true)).after(loc), loc)
+      let post-headings = query(selector(heading.where(level: 1, outlined: true)).after(loc))
       let heading-found = none
       if post-headings != () and post-headings.first().location().page() == loc.page() {
         heading-found = post-headings.first()
       } else {
-        let prev-headings = query(selector(heading.where(level: 1, outlined: true)).before(loc), loc)
+        let prev-headings = query(selector(heading.where(level: 1, outlined: true)).before(loc))
 
         if prev-headings != () {
           heading-found = prev-headings.last()  

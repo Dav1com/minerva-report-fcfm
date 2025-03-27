@@ -1,3 +1,6 @@
+# v0.2.2
+- Actualizado para Typst 0.13.1
+
 # v0.2.0
 - Agregada metadata al PDF exportado.
 - Agregada show rule y estado para mejorar el soporte para compilar.
